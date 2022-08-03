@@ -577,7 +577,7 @@ export const escape_svelty = (str: string): string =>
 		)
 		.replace(/\\([trn])/g, '&#92;$1');
 
-export const code_highlight: Highlighter = (code, lang) => {
+export const code_highlight: Highlighter = (code, lang, metastring) => {
 	const normalised_lang = lang?.toLowerCase();
 	if (!(process as RollupProcess).browser) {
 		let _lang = !!normalised_lang && langs[normalised_lang];
@@ -597,9 +597,9 @@ export const code_highlight: Highlighter = (code, lang) => {
 				? Prism.highlight(code, Prism.languages[_lang.name], _lang.name)
 				: escape(code)
 		);
-		return `<pre class="language-${normalised_lang}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</pre>`;
+		return `<Components.pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
 	} else {
 		const highlighted = escape_svelty(escape(code));
-		return `<pre class="language-${normalised_lang}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</pre>`;
+		return `Components.<pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
 	}
 };
