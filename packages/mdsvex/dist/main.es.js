@@ -25755,7 +25755,7 @@ const code_highlight = (code, lang, metastring) => {
 		return `<Components.pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
 	} else {
 		const highlighted = escape_svelty(escapeHtml_1(code));
-		return `Components.<pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
+		return `<Components.pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
 	}
 };
 

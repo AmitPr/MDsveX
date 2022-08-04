@@ -48453,7 +48453,7 @@
   	const normalised_lang = _optionalChain([lang, 'optionalAccess', _ => _.toLowerCase, 'call', _2 => _2()]);
   	{
   		const highlighted = escape_svelty(escapeHtml_1(code));
-  		return `Components.<pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
+  		return `<Components.pre class="language-${normalised_lang}" meta="${metastring}">{@html \`<code class="language-${normalised_lang}">${highlighted}</code>\`}</Components.pre>`;
   	}
   };
 
